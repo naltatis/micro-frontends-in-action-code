@@ -1,0 +1,55 @@
+/* GLOBAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 20px;
+}
+
+a {
+  color: inherit;
+}
+
+/* RECOMMENDATION PAGE STYLES */
+
+.layout {
+  padding: 0 1rem 1rem;
+}
+
+.header {
+  font-size: 2rem;
+  margin: 1rem 0 0;
+  text-align: center;
+  padding: 0.25rem;
+  border: solid lightgray;
+  border-width: 3px 0;
+  margin-bottom: 2rem;
+}
+
+/* RECOMMENDATION CONTENT STYLES */
+
+h2 {
+  font-size: 1em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.recommendations {
+  text-align: center;
+}
+
+.recommendations a {
+  display: inline-block;
+  margin: 1rem;
+  border: 1px solid #333;
+}
+
+.recommendations img {
+  max-width: 100%;
+  width: 300px;
+}

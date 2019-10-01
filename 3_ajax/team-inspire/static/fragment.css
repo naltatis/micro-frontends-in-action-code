@@ -1,0 +1,24 @@
+/* RECOMMENDATION CONTENT STYLES */
+
+h2 {
+  font-size: 1em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.recommendations {
+  text-align: center;
+}
+
+.recommendations a {
+  display: inline-block;
+  margin: 1rem;
+  border: 1px solid #333;
+}
+
+.recommendations img {
+  max-width: 100%;
+  width: 300px;
+}

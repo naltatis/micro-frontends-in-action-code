@@ -1,0 +1,89 @@
+/* GLOBAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+}
+
+a {
+  color: blue;
+}
+
+body {
+  padding: 1rem;
+}
+
+#app-shell {
+  border: 2px dashed #e5a044;
+  position: relative;
+  padding: 1rem;
+}
+
+#app-shell::after {
+  content: "app shell";
+  background: #e5a044;
+}
+
+#app-content > * {
+  padding: 1rem;
+  display: block;
+  position: relative;
+  min-height: 330px;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+}
+
+#app-shell::after,
+#app-content > *::after {
+  position: absolute;
+  color: white;
+  display: block;
+  bottom: -1.5rem;
+  line-height: 1.5rem;
+  right: -2px;
+  padding: 0 0.5em;
+}
+
+inspire-home {
+  border: 2px solid #7c9b2f;
+}
+
+inspire-home::after {
+  content: "team inspire";
+  background: #7c9b2f;
+}
+
+decide-product-porsche,
+decide-product-fendt,
+decide-product-eicher {
+  border: 2px solid #bc3630;
+}
+
+decide-product-porsche::after,
+decide-product-fendt::after,
+decide-product-eicher::after {
+  content: "team decide";
+  background: #bc3630;
+}
+
+checkout-cart,
+checkout-pay,
+checkout-success {
+  border: 2px solid #5f9dc8;
+}
+
+checkout-cart::after,
+checkout-pay::after,
+checkout-success::after {
+  content: "team checkout";
+  background: #5f9dc8;
+}
+
+footer {
+  margin-bottom: 1rem;
+  text-align: center;
+}

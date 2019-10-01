@@ -1,0 +1,81 @@
+/* GLOBAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+}
+
+a {
+  color: blue;
+}
+
+body {
+  padding: 1rem;
+}
+
+#app-shell {
+  border: 2px dashed #e5a044;
+  position: relative;
+  padding: 1rem;
+}
+
+#app-shell::after {
+  content: "app shell";
+  background: #e5a044;
+}
+
+#app-content > * {
+  padding: 1rem;
+  display: block;
+  position: relative;
+  min-height: 330px;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+}
+
+#app-shell::after,
+#app-content > *::after {
+  position: absolute;
+  color: white;
+  display: block;
+  bottom: -1.5rem;
+  line-height: 1.5rem;
+  right: -2px;
+  padding: 0 0.5em;
+}
+
+inspire-pages {
+  border: 2px solid #7c9b2f;
+}
+
+inspire-pages::after {
+  content: "team inspire";
+  background: #7c9b2f;
+}
+
+decide-pages {
+  border: 2px solid #bc3630;
+}
+
+decide-pages::after {
+  content: "team decide";
+  background: #bc3630;
+}
+
+checkout-pages {
+  border: 2px solid #5f9dc8;
+}
+
+checkout-pages::after {
+  content: "team checkout";
+  background: #5f9dc8;
+}
+
+footer {
+  margin-bottom: 1rem;
+  text-align: center;
+}

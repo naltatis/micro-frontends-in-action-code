@@ -1,0 +1,76 @@
+/* GLOBAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-size: 14px;
+}
+
+a {
+  color: blue;
+}
+
+body {
+  padding: 1rem;
+}
+
+#app-shell {
+  border: 2px dashed #e5a044;
+  position: relative;
+  padding: 1rem;
+}
+#app-shell::after {
+  content: "app shell - single-spa.js";
+  background: #e5a044;
+}
+
+#app-inspire:not(:empty),
+#app-decide:not(:empty),
+#app-checkout:not(:empty) {
+  padding: 1rem;
+  position: relative;
+  min-height: 330px;
+  max-width: 400px;
+  margin: 0 auto 2rem;
+}
+#app-shell:not(:empty)::after,
+#app-inspire:not(:empty)::after,
+#app-decide:not(:empty)::after,
+#app-checkout:not(:empty)::after {
+  position: absolute;
+  color: white;
+  display: block;
+  bottom: -1.5rem;
+  line-height: 1.5rem;
+  right: -2px;
+  padding: 0 0.5em;
+}
+
+#app-inspire:not(:empty) {
+  border: 2px solid #7c9b2f;
+}
+#app-inspire:not(:empty)::after {
+  content: "team inspire - svelte.js";
+  background: #7c9b2f;
+}
+#app-decide:not(:empty) {
+  border: 2px solid #bc3630;
+}
+#app-decide:not(:empty)::after {
+  content: "team decide - react.js";
+  background: #bc3630;
+}
+#app-checkout:not(:empty) {
+  border: 2px solid #5f9dc8;
+}
+#app-checkout:not(:empty)::after {
+  content: "team checkout - vue.js";
+  background: #5f9dc8;
+}
+footer {
+  margin-bottom: 1rem;
+  text-align: center;
+}

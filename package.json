@@ -1,0 +1,35 @@
+{
+  "name": "code",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "1_pages_links": "concurrently --names 'decide ,inspire' \"mfserve --listen 3001 1_pages_links/team-decide\" \"mfserve --listen 3002 1_pages_links/team-inspire\" \"npm run open -- http://localhost:3001/product/porsche\"",
+    "2_iframe": "concurrently --names 'decide ,inspire' \"mfserve --listen 3001 2_iframe/team-decide\" \"mfserve --listen 3002 2_iframe/team-inspire\" \"npm run open -- http://localhost:3001/product/porsche\"",
+    "3_ajax": "concurrently --names 'decide ,inspire' \"mfserve --listen 3001 3_ajax/team-decide\" \"mfserve --listen 3002 --cors 3_ajax/team-inspire\" \"npm run open -- http://localhost:3001/product/porsche\"",
+    "4_namespaced": "concurrently --names 'decide ,inspire' \"mfserve --listen 3001 4_namespaced/team-decide\" \"mfserve --listen 3002 --cors 4_namespaced/team-inspire\" \"npm run open -- http://localhost:3001/product/porsche\"",
+    "5_routing": "concurrently --names 'nginx  ,decide ,inspire' \"nginx -c \\\"`pwd`/5_routing/webserver/nginx.conf\\\"\" \"mfserve --listen 3001 5_routing/team-decide\" \"mfserve --listen 3002 5_routing/team-inspire\" \"npm run open -- http://localhost:3000/product/porsche\"",
+    "5_routing_no-nginx": "concurrently --names 'decide ,inspire' \"mfserve --listen 3001 5_routing/team-decide\" \"mfserve --listen 3002 5_routing/team-inspire\" \"npm run open -- http://localhost:3000/product/porsche\"",
+    "6_ssi": "concurrently --names 'nginx  ,decide ,inspire' \"nginx -c \\\"`pwd`/6_ssi/webserver/nginx.conf\\\"\" \"mfserve --listen 3001 6_ssi/team-decide\" \"mfserve --listen 3002 6_ssi/team-inspire\" \"npm run open -- http://localhost:3000/product/porsche\"",
+    "7_timeouts": "concurrently --names 'nginx  ,decide ,inspire' \"nginx -c \\\"`pwd`/7_timeouts/webserver/nginx.conf\\\"\" \"mfserve --listen 3001 7_timeouts/team-decide\" \"mfserve --listen 3002 7_timeouts/team-inspire\" \"npm run open -- http://localhost:3000/product/eicher\"",
+    "7_timeouts_with_delay": "concurrently --names 'nginx  ,decide ,inspire' \"nginx -c \\\"`pwd`/7_timeouts/webserver/nginx.conf\\\"\" \"mfserve --listen 3001 7_timeouts/team-decide\" \"mfserve --listen 3002 --delay 1000 7_timeouts/team-inspire\" \"npm run open -- http://localhost:3000/product/eicher\"",
+    "8_podium": "concurrently --names 'decide ,inspire' \"cd 8_podium/team-decide; npm install; npm start\" \"cd 8_podium/team-inspire; npm install; npm start\" \"npm run open -- http://localhost:3001/product\"",
+    "8_web_components": "concurrently --names 'decide  ,inspire ,checkout' \"mfserve --listen 3001 8_web_components/team-decide\" \"mfserve --listen 3002 --cors 8_web_components/team-inspire\" \"mfserve --listen 3003 8_web_components/team-checkout\" \"npm run open -- http://localhost:3001/product/fendt\"",
+    "9_parent_child_communication": "concurrently --names 'decide  ,inspire ,checkout' \"mfserve --listen 3001 9_parent_child_communication/team-decide\" \"mfserve --listen 3002 --cors 9_parent_child_communication/team-inspire\" \"mfserve --listen 3003 9_parent_child_communication/team-checkout\" \"npm run open -- http://localhost:3001/product/fendt\"",
+    "10_child_parent_communication": "concurrently --names 'decide  ,inspire ,checkout' \"mfserve --listen 3001 10_child_parent_communication/team-decide\" \"mfserve --listen 3002 --cors 10_child_parent_communication/team-inspire\" \"mfserve --listen 3003 10_child_parent_communication/team-checkout\" \"npm run open -- http://localhost:3001/product/fendt\"",
+    "11_fragment_fragment_communication": "concurrently --names 'decide  ,inspire ,checkout' \"mfserve --listen 3001 11_fragment_fragment_communication/team-decide\" \"mfserve --listen 3002 --cors 11_fragment_fragment_communication/team-inspire\" \"mfserve --listen 3003 11_fragment_fragment_communication/team-checkout\" \"npm run open -- http://localhost:3001/product/fendt\"",
+    "12_shadow_dom": "concurrently --names 'decide  ,inspire ,checkout' \"mfserve --listen 3001 12_shadow_dom/team-decide\" \"mfserve --listen 3002 --cors 12_shadow_dom/team-inspire\" \"mfserve --listen 3003 12_shadow_dom/team-checkout\" \"npm run open -- http://localhost:3001/product/fendt\"",
+    "13_client_side_flat_routing": "concurrently --names 'app-shell,decide   ,inspire  ,checkout ' \"mfserve --listen 3000 --single 13_client_side_flat_routing/app-shell\" \"mfserve --listen 3001 13_client_side_flat_routing/team-decide\" \"mfserve --listen 3002 13_client_side_flat_routing/team-inspire\" \"mfserve --listen 3003 13_client_side_flat_routing/team-checkout\" \"npm run open -- http://localhost:3000\"",
+    "14_client_side_two_level_routing": "concurrently --names 'app-shell,decide   ,inspire  ,checkout ' \"mfserve --listen 3000 --single 14_client_side_two_level_routing/app-shell\" \"mfserve --listen 3001 14_client_side_two_level_routing/team-decide\" \"mfserve --listen 3002 14_client_side_two_level_routing/team-inspire\" \"mfserve --listen 3003 14_client_side_two_level_routing/team-checkout\" \"npm run open -- http://localhost:3000\"",
+    "15_single_spa": "concurrently --names 'app-shell,decide   ,inspire  ,checkout ' \"mfserve --listen 3000 --single 15_single_spa/app-shell\" \"mfserve --listen 3001 --cors 15_single_spa/team-decide\" \"mfserve --listen 3002 --cors 15_single_spa/team-inspire\" \"mfserve --listen 3003 --cors 15_single_spa/team-checkout\" \"npm run open -- http://localhost:3000\"",
+    "open": "sleepms 3000 && opener"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@microfrontends/serve": "^11.2.0",
+    "concurrently": "^4.1.0",
+    "opener": "^1.5.1",
+    "sleep-ms": "^2.0.1"
+  }
+}
