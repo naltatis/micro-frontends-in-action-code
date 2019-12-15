@@ -1,7 +1,8 @@
 ---
 chapter: 3
+tags: [routing, page transition, web-server, NGINX]
 ---
 
-# Server side routing
+# Server-side Routing
 
 TBA

@@ -23,14 +23,16 @@ app.get("/recos/manifest.json", (req, res) => {
 
 app.get("/recos", (req, res) => {
   res.status(200).podiumSend(`
-    <h2 class="inspire_headline">Recommendations</h2>
-    <div class="inspire_recommendations">
-      <a href="http://localhost:3001/product">
-        <img src="https://mi-fr.org/img/fendt.svg" />
-      </a>
-      <a href="http://localhost:3001/product">
-        <img src="https://mi-fr.org/img/eicher.svg" />
-      </a>
+    <div class="inspire_fragment">
+      <h2 class="inspire_headline">Recommendations</h2>
+      <div class="inspire_recommendations">
+        <a href="http://localhost:3001/product">
+          <img src="https://mi-fr.org/img/fendt.svg" />
+        </a>
+        <a href="http://localhost:3001/product">
+          <img src="https://mi-fr.org/img/eicher.svg" />
+        </a>
+      </div>
     </div>
   `);
 });

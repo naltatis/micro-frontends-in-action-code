@@ -1,5 +1,6 @@
 ---
 chapter: 2
+tags: [page transition, links]
 ---
 
 # Pages & Links

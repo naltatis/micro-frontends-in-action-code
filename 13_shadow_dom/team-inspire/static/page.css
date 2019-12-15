@@ -17,6 +17,8 @@ a {
 
 .inspire_layout {
   padding: 0 1rem 1rem;
+  max-width: 55rem;
+  margin: 0 auto;
 }
 
 .inspire_header {

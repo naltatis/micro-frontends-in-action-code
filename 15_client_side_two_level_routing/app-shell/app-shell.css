@@ -5,8 +5,8 @@
 }
 
 html {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  font-size: 14px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
 }
 
 a {
@@ -18,7 +18,7 @@ body {
 }
 
 #app-shell {
-  border: 2px dashed #e5a044;
+  border: 3px solid #e5a044;
   position: relative;
   padding: 1rem;
 }
@@ -42,14 +42,22 @@ body {
   position: absolute;
   color: white;
   display: block;
-  bottom: -1.5rem;
   line-height: 1.5rem;
-  right: -2px;
   padding: 0 0.5em;
 }
 
+#app-content > *::after {
+  bottom: -1.5rem;
+  right: -3px;
+}
+
+#app-shell::after {
+  left: -3px;
+  bottom: 0;
+}
+
 inspire-pages {
-  border: 2px solid #7c9b2f;
+  border: 3px solid #7c9b2f;
 }
 
 inspire-pages::after {
@@ -58,7 +66,7 @@ inspire-pages::after {
 }
 
 decide-pages {
-  border: 2px solid #bc3630;
+  border: 3px solid #bc3630;
 }
 
 decide-pages::after {
@@ -67,7 +75,7 @@ decide-pages::after {
 }
 
 checkout-pages {
-  border: 2px solid #5f9dc8;
+  border: 3px solid #5f9dc8;
 }
 
 checkout-pages::after {

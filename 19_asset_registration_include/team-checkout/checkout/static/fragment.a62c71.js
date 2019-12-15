@@ -1,0 +1,21 @@
+const prices = {
+  porsche: 66,
+  fendt: 54,
+  eicher: 58
+};
+
+class CheckoutBuy extends HTMLElement {
+  constructor() {
+    super();
+    const sku = this.getAttribute("sku");
+    this.innerHTML = `
+      <button type="button">buy for ${prices[sku]} $</button>
+    `;
+    this.querySelector("button").addEventListener("click", () => {
+      alert("Thank you ❤️");
+    });
+  }
+}
+window.customElements.define("checkout-buy", CheckoutBuy);
+
+console.log("Team Checkout's JavaScript is ready");

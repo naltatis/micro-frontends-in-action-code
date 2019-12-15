@@ -1,0 +1,23 @@
+{
+  "redirects": [
+    {
+      "source": "/inspire/fragment.js",
+      "destination": "/inspire/static/fragment.0534b1.js"
+    },
+    {
+      "source": "/inspire/fragment.css",
+      "destination": "/inspire/static/fragment.0c3397.css"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/inspire/static/**",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000000"
+        }
+      ]
+    }
+  ]
+}

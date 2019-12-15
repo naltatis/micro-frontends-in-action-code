@@ -7,7 +7,7 @@ This is the example code that goes along with the Manning book [Micro Frontends 
 All examples involve starting up multiple applications which are owned by different teams. There are two ways of running these:
 
 1. In **one terminal window** using `npm run [x_name]`
-2. In **separate terminal windows** using the indivitual `npx ...` commands
+2. In **separate terminal windows** using the individual `npx ...` commands
 
 Ether way, you need to install the npm dependencies in the root folder before running the commands.
 
@@ -17,12 +17,12 @@ npm install
 
 In the examples different port numbers are used to indicate ownership. The following table shows which teams owns which application:
 
-| Port   | Team          | Responsibility                        |
-| ------ | ------------- | ------------------------------------- |
-| `3000` | - shared -    | infrastructure (webserver, app shell) |
-| `3001` | Team Decide   | product page                          |
-| `3002` | Team Inspire  | homepage, search, recommendatons      |
-| `3003` | Team Checkout | cart, checkout process                |
+| Port   | Team          | Responsibility                         |
+| ------ | ------------- | -------------------------------------- |
+| `3000` | - shared -    | infrastructure (web-server, app shell) |
+| `3001` | Team Decide   | product page                           |
+| `3002` | Team Inspire  | homepage, search, recommendations      |
+| `3003` | Team Checkout | cart, checkout process                 |
 
 ### 1. Pages & Links
 

@@ -5,7 +5,7 @@
 }
 
 html {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 20px;
 }
 
@@ -18,9 +18,11 @@ a {
 .decide_layout {
   display: grid;
   margin: 0;
-  padding: 0 1rem 1rem;
+  padding: 0 1rem 3rem;
   grid-gap: 2rem;
   grid-template-columns: 3fr 2fr 2fr;
+  max-width: 55rem;
+  margin: 0 auto;
 }
 
 .decide_header {
@@ -37,7 +39,7 @@ a {
   position: relative;
 }
 
-@keyframes confirm{
+@keyframes confirm {
   0% {
     transform: scale(0.4);
     opacity: 0;
@@ -59,7 +61,7 @@ a {
 .decide_product--confirm::after {
   position: absolute;
   right: 0;
-  top: .5em;
+  top: 0.5em;
   left: 0;
   text-align: center;
   font-size: 10em;
@@ -85,7 +87,6 @@ a {
   flex-direction: column;
 }
 
-
 .decide_editions {
   display: block;
   cursor: pointer;
@@ -98,8 +99,8 @@ a {
 }
 
 .decide_editions input {
-   zoom: 1.25;
-   transform: scale(1.5);
+  zoom: 1.25;
+  transform: scale(1.5);
 }
 
 .decide_editions span {

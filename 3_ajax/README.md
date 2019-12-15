@@ -1,7 +1,8 @@
 ---
 chapter: 3
+tags: [composition, AJAX]
 ---
 
-# Ajax
+# AJAX
 
 TBA

@@ -18,9 +18,11 @@ a {
 .decide_layout {
   display: grid;
   margin: 0;
-  padding: 0 1rem 1rem;
+  padding: 0 1rem 3rem;
   grid-gap: 2rem;
   grid-template-columns: 3fr 2fr 2fr;
+  max-width: 55rem;
+  margin: 0 auto;
 }
 
 .decide_header {

@@ -27,6 +27,7 @@ app.get(layout.pathname(), async (req, res, next) => {
     <head>
       <title>Porsche-Diesel Master 419</title>
       <link href="/static/page.css" rel="stylesheet" />
+      <link href="/static/outlines.css" rel="stylesheet" />
       ${recoResponse.css
         .map(css => `<link href="${css.value}" rel="stylesheet" />`)
         .join("\n")}

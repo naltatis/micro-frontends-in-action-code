@@ -21,6 +21,8 @@ a {
   padding: 0 1rem 1rem;
   grid-gap: 2rem;
   grid-template-columns: 3fr 2fr;
+  max-width: 55rem;
+  margin: 0 auto;
 }
 
 .header {
