@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require("express");
 const morgan = require("morgan");
 const Layout = require("@podium/layout");
@@ -19,28 +21,32 @@ app.use(morgan("dev"));
 app.use(layout.middleware());
 app.use("/static", express.static("./static"));
 
-app.get(layout.pathname(), async (req, res, next) => {
-  const recoResponse = await recos.fetch(res.locals.podium);
+layout.css([
+  { value: '/static/page.css' },
+  { value: '/static/outlines.css' },
+]);
 
-  res.send(`
-    <html>
-    <head>
-      <title>Porsche-Diesel Master 419</title>
-      <link href="/static/page.css" rel="stylesheet" />
-      <link href="/static/outlines.css" rel="stylesheet" />
-      ${recoResponse.css
-        .map(css => `<link href="${css.value}" rel="stylesheet" />`)
-        .join("\n")}
-    </head>
-    <body class="decide_layout">
+app.get(layout.pathname(), async (req, res, next) => {
+  const incoming = res.locals.podium;
+
+  const response = await Promise.all([
+    recos.fetch(incoming),
+  ]);
+
+  incoming.podlets = response;
+  incoming.view = {
+    title: 'Porsche-Diesel Master 419',
+  };
+
+  res.status(200).podiumSend(`
+    <section class="decide_layout">
       <h1 class="decide_header">The Tractor Store</h1>
       <div class="decide_product">
         <h2 class="decide_headline">Porsche-Diesel Master 419</h2>
         <img class="decide_image" src="https://mi-fr.org/img/porsche.svg" />
       </div>
-      <aside class="decide_recos">${recoResponse}</aside>
-    </body>
-    </html>
+      <aside class="decide_recos">${response[0]}</aside>
+    </section>
   `);
 });
 

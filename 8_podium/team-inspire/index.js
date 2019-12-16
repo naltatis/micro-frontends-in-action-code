@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require("express");
 const morgan = require("morgan");
 const Podlet = require("@podium/podlet");
@@ -6,8 +8,10 @@ const podlet = new Podlet({
   name: "recos",
   version: "1.0.2",
   pathname: "/recos",
-  fallback: "/fallback"
+  fallback: "/fallback",
+  development: true,
 });
+
 podlet.css({
   value: "http://localhost:3002/static/fragment.css"
 });
