@@ -1,6 +1,11 @@
 /* RECOMMENDATION CONTENT STYLES */
 
+inspire-recommendations {
+  display: block;
+}
+
 .inspire_headline {
+  padding-top: 1em;
   font-size: 1em;
   font-weight: normal;
   text-align: center;

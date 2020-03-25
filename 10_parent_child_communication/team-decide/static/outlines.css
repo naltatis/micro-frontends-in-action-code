@@ -1,13 +1,13 @@
 html {
-  outline: 3px solid #BC3630;
+  outline: 3px solid #bc3630;
   outline-offset: -10px;
   position: relative;
 }
 
 html::after {
-  content: "Team Decide";
+  content: "Team Decide (changes attribute)";
   display: block;
-  background-color: #BC3630;
+  background-color: #bc3630;
   color: white;
   position: absolute;
   padding: 2px 5px;
@@ -15,16 +15,16 @@ html::after {
   left: 7px;
 }
 
-.inspire_fragment { 
+inspire-recommendations {
   position: relative;
-  outline: 3px solid #7C9B2F;
+  outline: 3px solid #7c9b2f;
   position: relative;
 }
 
-.inspire_fragment::before {
-  content: "Team Inspire (SSI)";
+inspire-recommendations::before {
+  content: "Team Inspire";
   display: block;
-  background-color: #7C9B2F;
+  background-color: #7c9b2f;
   color: white;
   position: absolute;
   padding: 2px 5px;
@@ -32,16 +32,16 @@ html::after {
   right: -3px;
 }
 
-checkout-buy { 
+checkout-buy {
   position: relative;
-  outline: 3px solid #5F9DC8;
+  outline: 3px solid #5f9dc8;
   outline-offset: 5px;
 }
 
 checkout-buy::before {
-  content: "Checkout (Web Component)";
+  content: "Checkout (attribute change)";
   display: block;
-  background-color: #5F9DC8;
+  background-color: #5f9dc8;
   color: white;
   position: absolute;
   padding: 2px 5px;

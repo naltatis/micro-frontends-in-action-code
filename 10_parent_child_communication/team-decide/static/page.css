@@ -5,7 +5,7 @@
 }
 
 html {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
+  font-family: "Helvetica Neue", Arial, sans-serif;
   font-size: 20px;
 }
 
@@ -21,6 +21,7 @@ a {
   padding: 0 1rem 3rem;
   grid-gap: 2rem;
   grid-template-columns: 3fr 2fr 2fr;
+  min-width: 42rem;
   max-width: 55rem;
   margin: 0 auto;
 }
@@ -51,7 +52,6 @@ a {
   flex-direction: column;
 }
 
-
 .decide_editions {
   display: block;
   cursor: pointer;
@@ -64,8 +64,8 @@ a {
 }
 
 .decide_editions input {
-   zoom: 1.25;
-   transform: scale(1.5);
+  zoom: 1.25;
+  transform: scale(1.5);
 }
 
 .decide_editions span {

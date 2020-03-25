@@ -1,0 +1,23 @@
+{
+  "redirects": [
+    {
+      "source": "/checkout/fragment.js",
+      "destination": "/checkout/static/fragment.a62c71.js"
+    },
+    {
+      "source": "/checkout/fragment.css",
+      "destination": "/checkout/static/fragment.a98749.css"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/checkout/static/**",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000000"
+        }
+      ]
+    }
+  ]
+}

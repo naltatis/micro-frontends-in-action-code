@@ -1,0 +1,24 @@
+/* RECOMMENDATION CONTENT STYLES */
+.inspire_headline {
+  padding-top: 1em;
+  font-size: 1em;
+  font-weight: normal;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.inspire_recommendations {
+  text-align: center;
+}
+
+.inspire_recommendations a {
+  display: inline-block;
+  margin: 1rem;
+  border: 1px solid #333;
+}
+
+.inspire_recommendations img {
+  max-width: 100%;
+  width: 300px;
+}

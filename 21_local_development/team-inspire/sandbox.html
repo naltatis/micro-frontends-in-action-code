@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>Team Inspire's Sandbox</title>
+    <link href="/static/fragment.css" rel="stylesheet" />
+    <style>
+      /* GLOBAL STYLES */
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 20px;
+        padding: 1rem;
+        background: repeating-linear-gradient(
+          45deg,
+          #ffffff,
+          #ffffff 28.75px,
+          #dddddd 28.75px,
+          #dddddd 57.5px
+        );
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      /* SANDBOX STYLES */
+      fieldset {
+        border-color: #929292;
+        background-color: white;
+        margin-bottom: 2rem;
+        padding: 1rem;
+      }
+
+      legend {
+        background-color: white;
+      }
+
+      body > div {
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+      }
+
+      h1 {
+        text-align: center;
+      }
+
+      h1 span {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        background-color: white;
+      }
+
+      #sandbox_toggles label {
+        display: block;
+      }
+
+      #recos {
+        width: 49vw;
+        margin-left: 1rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><span>Team Inspire's Sandbox</span></h1>
+    <div>
+      <fieldset id="sandbox_toggles">
+        <legend>sandbox toggles</legend>
+        <strong>change sku:</strong>
+        <label>
+          <input type="radio" name="sku" value="porsche" checked />
+          <code>porsche</code>
+        </label>
+        <label>
+          <input type="radio" name="sku" value="fendt" />
+          <code>fendt</code>
+        </label>
+        <label>
+          <input type="radio" name="sku" value="eicher" />
+          <code>eicher</code>
+        </label>
+      </fieldset>
+      <fieldset id="recos">
+        <legend>
+          <code>&lt;inspire-recommendations&gt;</code>
+        </legend>
+        <inspire-recommendations sku="porsche"></inspire-recommendations>
+      </fieldset>
+    </div>
+
+    <script>
+      const buyButton = document.querySelector("inspire-recommendations");
+      const toggles = document.querySelector("#sandbox_toggles");
+      toggles.addEventListener("change", e => {
+        const el = e.target;
+        const newSku = el.getAttribute("value");
+        buyButton.setAttribute("sku", newSku);
+      });
+    </script>
+    <script src="/static/fragment.js" async></script>
+  </body>
+</html>

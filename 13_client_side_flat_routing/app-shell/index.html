@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <title>The Tractor Store</title>
+    <script src="https://unpkg.com/history@4.9.0"></script>
+    <script src="http://localhost:3001/pages.js" async></script>
+    <script src="http://localhost:3002/pages.js" async></script>
+    <script src="http://localhost:3003/pages.js" async></script>
+    <link href="/app-shell.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="app-shell">
+      <div id="app-content"><span>content not loaded yet</span></div>
+    </div>
+    <script type="module">
+      const appContent = document.querySelector("#app-content");
+
+      const routes = {
+        "/": "inspire-home",
+        "/product/porsche": "decide-product-porsche",
+        "/product/fendt": "decide-product-fendt",
+        "/product/eicher": "decide-product-eicher",
+        "/checkout/cart": "checkout-cart",
+        "/checkout/pay": "checkout-pay",
+        "/checkout/success": "checkout-success"
+      };
+
+      function findComponentName(pathname) {
+        return routes[pathname];
+      }
+
+      function updatePageComponent(location) {
+        const next = findComponentName(location.pathname);
+        const current = appContent.firstChild;
+        if (current.nodeName.toLowerCase() !== next) {
+          const newComponent = document.createElement(next);
+          appContent.replaceChild(newComponent, current);
+        }
+      }
+
+      const appHistory = window.History.createBrowserHistory();
+      appHistory.listen(updatePageComponent);
+      updatePageComponent(window.location);
+
+      document.addEventListener("click", e => {
+        if (e.target.nodeName === "A") {
+          const href = e.target.getAttribute("href");
+          appHistory.push(href);
+          e.preventDefault();
+        }
+      });
+    </script>
+
+    <footer>
+      random string: <strong></strong> / generated on app shell load<br />
+      will only change on a <strong>hard navigation</strong>
+    </footer>
+    <style>
+      footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 1rem;
+      }
+    </style>
+    <script type="module">
+      const randomString = Math.round(Math.random() * 2e5).toString(16);
+      document.querySelector("footer strong").innerHTML = randomString;
+    </script>
+  </body>
+</html>

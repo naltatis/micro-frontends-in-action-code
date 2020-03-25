@@ -31,14 +31,14 @@ In the examples different port numbers are used to indicate ownership. The follo
 **in one terminal**
 
 ```
-npm run 1_pages_links
+npm run 01_pages_links
 ```
 
 **using separate terminals**
 
 ```
-npx mfserve --listen 3001 1_pages_links/team-decide
-npx mfserve --listen 3002 1_pages_links/team-inspire
+npx mfserve --listen 3001 01_pages_links/team-decide
+npx mfserve --listen 3002 01_pages_links/team-inspire
 ```
 
 Go to http://localhost:3001/product/porsche in your browser.
@@ -48,14 +48,14 @@ Go to http://localhost:3001/product/porsche in your browser.
 **in one terminal**
 
 ```
-npm run 2_iframe
+npm run 02_iframe
 ```
 
 **using separate terminals**
 
 ```
-npx mfserve --listen 3001 2_iframe/team-decide
-npx mfserve --listen 3002 2_iframe/team-inspire
+npx mfserve --listen 3001 02_iframe/team-decide
+npx mfserve --listen 3002 02_iframe/team-inspire
 ```
 
 Go to http://localhost:3001/product/porsche in your browser.
@@ -65,14 +65,14 @@ Go to http://localhost:3001/product/porsche in your browser.
 **in one terminal**
 
 ```
-npm run 3_ajax
+npm run 03_ajax
 ```
 
 **using separate terminals**
 
 ```
-npx mfserve --listen 3001 3_ajax/team-decide
-npx mfserve --listen 3002 --cors 3_ajax/team-inspire
+npx mfserve --listen 3001 03_ajax/team-decide
+npx mfserve --listen 3002 --cors 03_ajax/team-inspire
 ```
 
 Go to http://localhost:3001/product/porsche in your browser.
@@ -82,14 +82,14 @@ Go to http://localhost:3001/product/porsche in your browser.
 **in one terminal**
 
 ```
-npm run 4_namespaced
+npm run 04_namespaced
 ```
 
 **using separate terminals**
 
 ```
-npx mfserve --listen 3001 4_namespaced/team-decide
-npx mfserve --listen 3002 --cors 4_namespaced/team-inspire
+npx mfserve --listen 3001 04_namespaced/team-decide
+npx mfserve --listen 3002 --cors 04_namespaced/team-inspire
 ```
 
 Go to http://localhost:3001/product/porsche in your browser.
@@ -99,20 +99,20 @@ Go to http://localhost:3001/product/porsche in your browser.
 **in one terminal (doesn't work on Windows, use the commands below)**
 
 ```
-npm run 5_routing
+npm run 04_routing
 ```
 
 **using separate terminals**
 
 ```
 # on unix
-nginx -c "`pwd`/5_routing/webserver/nginx.conf"
+nginx -c "`pwd`/04_routing/webserver/nginx.conf"
 # on windows
-cd nginx-1.15.12; .\nginx.exe -c ..\5_routing\webserver\nginx.conf
+cd nginx-1.15.12; .\nginx.exe -c ..\04_routing\webserver\nginx.conf
 
-npx mfserve --listen 3001 5_routing/team-decide
+npx mfserve --listen 3001 04_routing/team-decide
 
-npx mfserve --listen 3002 5_routing/team-inspire
+npx mfserve --listen 3002 04_routing/team-inspire
 ```
 
 Go to http://localhost:3000/product/porsche in your browser.
@@ -122,20 +122,20 @@ Go to http://localhost:3000/product/porsche in your browser.
 **in one terminal (doesn't work on Windows, use the commands below)**
 
 ```
-npm run 6_ssi
+npm run 05_ssi
 ```
 
 **using separate terminals**
 
 ```
 # on unix
-nginx -c "`pwd`/6_ssi/webserver/nginx.conf"
+nginx -c "`pwd`/05_ssi/webserver/nginx.conf"
 # on windows
-cd nginx-1.15.12; .\nginx.exe -c ..\6_ssi\webserver\nginx.conf
+cd nginx-1.15.12; .\nginx.exe -c ..\05_ssi\webserver\nginx.conf
 
-npx mfserve --listen 3001 6_ssi/team-decide
+npx mfserve --listen 3001 05_ssi/team-decide
 
-npx mfserve --listen 3002 6_ssi/team-inspire
+npx mfserve --listen 3002 05_ssi/team-inspire
 ```
 
 Go to http://localhost:3000/product/porsche in your browser.
@@ -145,24 +145,24 @@ Go to http://localhost:3000/product/porsche in your browser.
 **in one terminal (doesn't work on Windows, use the commands below)**
 
 ```
-npm run 7_timeouts
-npm run 7_timeouts_with_delay
+npm run 06_timeouts
+npm run 06_timeouts_with_delay
 ```
 
 **using separate terminals**
 
 ```
 # on unix
-nginx -c "`pwd`/7_timeouts/webserver/nginx.conf"
+nginx -c "`pwd`/06_timeouts/webserver/nginx.conf"
 # on windows
-cd nginx-1.15.12; .\nginx.exe -c ..\7_timeouts\webserver\nginx.conf
+cd nginx-1.15.12; .\nginx.exe -c ..\06_timeouts\webserver\nginx.conf
 
-npx mfserve --listen 3001 7_timeouts/team-decide
+npx mfserve --listen 3001 06_timeouts/team-decide
 
 # without delay
-npx mfserve --listen 3002 7_timeouts/team-inspire
+npx mfserve --listen 3002 06_timeouts/team-inspire
 # with delay
-npx mfserve --listen 3002 --delay 1000 7_timeouts/team-inspire
+npx mfserve --listen 3002 --delay 1000 06_timeouts/team-inspire
 ```
 
 Go to http://localhost:3000/product/eicher in your browser.
@@ -172,14 +172,14 @@ Go to http://localhost:3000/product/eicher in your browser.
 **in one terminal**
 
 ```
-npm run 8_podium
+npm run 07_podium
 ```
 
 **using separate terminals**
 
 ```
-cd 8_podium/team-decide;  npm install; npm start
-cd 8_podium/team-inspire; npm install; npm start
+cd 07_podium/team-decide;  npm install; npm start
+cd 07_podium/team-inspire; npm install; npm start
 ```
 
 Go to http://localhost:3001/product in your browser.

@@ -1,0 +1,47 @@
+/* GLOBAL STYLES */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 20px;
+}
+
+a {
+  color: inherit;
+}
+
+/* PRODUCT PAGE STYLES */
+
+.layout {
+  display: grid;
+  margin: 0;
+  padding: 0 1rem 1rem;
+  grid-gap: 2rem;
+  grid-template-columns: 3fr 2fr;
+  min-width: 42rem;
+  max-width: 55rem;
+  margin: 0 auto;
+}
+
+.header {
+  font-size: 2rem;
+  margin: 1rem 0 0;
+  text-align: center;
+  padding: 0.25rem;
+  border: solid lightgray;
+  border-width: 3px 0;
+  grid-column: 1 / span 2;
+}
+
+h2 {
+  font-size: 1.5em;
+  text-align: center;
+  margin: 0;
+}
+
+.image {
+  width: 100%;
+}

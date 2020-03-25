@@ -1,0 +1,59 @@
+html {
+  outline: 3px solid #bc3630;
+  outline-offset: -10px;
+  position: relative;
+}
+
+html::after {
+  content: "Team Decide";
+  display: block;
+  background-color: #bc3630;
+  color: white;
+  position: absolute;
+  padding: 2px 5px;
+  bottom: 10px;
+  left: 7px;
+}
+
+inspire-recommendations {
+  display: block;
+  position: relative;
+  outline: 3px solid #7c9b2f;
+}
+
+inspire-recommendations::before {
+  content: "Inspire (Shadow DOM)";
+  display: block;
+  background-color: #7c9b2f;
+  color: white;
+  position: absolute;
+  padding: 2px 5px;
+  bottom: -30px;
+  right: -3px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+}
+
+checkout-buy {
+  display: block;
+  position: relative;
+  outline: 3px solid #5f9dc8;
+  outline-offset: 5px;
+}
+
+checkout-buy::before {
+  content: "Checkout (Shadow DOM)";
+  display: block;
+  background-color: #5f9dc8;
+  color: white;
+  position: absolute;
+  padding: 2px 5px;
+  bottom: -34px;
+  right: -8px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+}

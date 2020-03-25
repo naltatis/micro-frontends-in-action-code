@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <title>Team Checkout's Sandbox</title>
+    <link href="/static/fragment.css" rel="stylesheet" />
+    <style>
+      /* GLOBAL STYLES */
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        font-family: "Helvetica Neue", Arial, sans-serif;
+        font-size: 20px;
+        padding: 1rem;
+        background: repeating-linear-gradient(
+          45deg,
+          #ffffff,
+          #ffffff 28.75px,
+          #eeeeee 28.75px,
+          #eeeeee 57.5px
+        );
+        min-height: 100vh;
+      }
+
+      a {
+        color: inherit;
+      }
+
+      /* SANDBOX STYLES */
+      h1 {
+        text-align: center;
+      }
+
+      h1 span {
+        padding: 0.5rem;
+        font-size: 1.5rem;
+        background-color: white;
+      }
+
+      fieldset {
+        border-color: #929292;
+        background-color: white;
+        margin-bottom: 2rem;
+        padding: 1rem;
+      }
+      #sandbox_toggles button {
+        font-size: 0.72rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1><span>Team Checkout's Sandbox</span></h1>
+    <div>
+      <fieldset id="sandbox_toggles">
+        <strong>trigger event:</strong>
+        <button id="random">add random product</button>
+        <br />
+        <legend>sandbox toggles</legend>
+        <strong>change sku:</strong>
+        <label>
+          <input type="radio" name="sku" value="porsche" checked />
+          <code>porsche</code>
+        </label>
+        <label>
+          <input type="radio" name="sku" value="fendt" />
+          <code>fendt</code>
+        </label>
+        <label>
+          <input type="radio" name="sku" value="eicher" />
+          <code>eicher</code>
+        </label>
+        <br />
+        <strong>change edition:</strong>
+        <label>
+          <input type="radio" name="edition" value="standard" checked />
+          <code>standard</code>
+        </label>
+        <label>
+          <input type="radio" name="edition" value="platinum" />
+          <code>platinum</code>
+        </label>
+      </fieldset>
+      <fieldset id="buy">
+        <legend>Buy Button (<code>&lt;checkout-buy&gt;</code>)</legend>
+        <checkout-buy sku="porsche" edition="standard"></checkout-buy>
+      </fieldset>
+      <fieldset id="minicart">
+        <legend>Minicart (<code>&lt;checkout-minicart&gt;</code>)</legend>
+        <checkout-minicart></checkout-minicart>
+      </fieldset>
+    </div>
+
+    <script>
+      const buyButton = document.querySelector("checkout-buy");
+      const toggles = document.querySelector("#sandbox_toggles");
+      toggles.addEventListener("change", e => {
+        const el = e.target;
+        if (el.nodeName === "INPUT") {
+          const changedProperty = el.getAttribute("name");
+          const newValue = el.getAttribute("value");
+          buyButton.setAttribute(changedProperty, newValue);
+        }
+      });
+
+      const randomButton = document.querySelector("#random");
+      randomButton.addEventListener("click", e => {
+        const skus = ["porsche", "fendt", "eicher"];
+        const sku = skus[Math.floor(Math.random() * skus.length)];
+        const edition = Math.random() < 0.5 ? "standard" : "platinum";
+
+        randomButton.dispatchEvent(
+          new CustomEvent("checkout:item_added", {
+            bubbles: true,
+            detail: { sku, edition }
+          })
+        );
+      });
+    </script>
+    <script src="/static/fragment.js" async></script>
+  </body>
+</html>

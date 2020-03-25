@@ -1,0 +1,32 @@
+html {
+  outline: 3px solid #bc3630;
+  outline-offset: -10px;
+  position: relative;
+}
+
+html::after {
+  content: "Team Decide";
+  display: block;
+  background-color: #bc3630;
+  color: white;
+  position: absolute;
+  padding: 2px 5px;
+  bottom: 10px;
+  left: 7px;
+}
+
+.inspire_fragment {
+  position: relative;
+  outline: 3px solid #7c9b2f;
+}
+
+.inspire_fragment::before {
+  content: "Team Inspire (AJAX via nginx)";
+  display: block;
+  background-color: #7c9b2f;
+  color: white;
+  position: absolute;
+  padding: 2px 5px;
+  bottom: -30px;
+  right: -3px;
+}
