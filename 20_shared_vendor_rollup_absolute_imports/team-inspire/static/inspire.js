@@ -53,7 +53,7 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
-function isNativeReflectConstruct() {
+function _isNativeReflectConstruct() {
   if (typeof Reflect === "undefined" || !Reflect.construct) return false;
   if (Reflect.construct.sham) return false;
   if (typeof Proxy === "function") return true;
@@ -67,7 +67,7 @@ function isNativeReflectConstruct() {
 }
 
 function _construct(Parent, args, Class) {
-  if (isNativeReflectConstruct()) {
+  if (_isNativeReflectConstruct()) {
     _construct = Reflect.construct;
   } else {
     _construct = function _construct(Parent, args, Class) {
@@ -137,6 +137,23 @@ function _possibleConstructorReturn(self, call) {
   return _assertThisInitialized(self);
 }
 
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
 var recos = {
   fendt: ["eicher", "porsche"],
   eicher: ["porsche", "fendt"],
@@ -149,17 +166,17 @@ function Recommendations (_ref) {
     return null;
   }
 
-  return React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "inspire_fragment"
-  }, React.createElement("h2", {
+  }, /*#__PURE__*/React.createElement("h2", {
     className: "inspire_headline"
-  }, "Recommendations"), React.createElement("div", {
+  }, "Recommendations"), /*#__PURE__*/React.createElement("div", {
     className: "inspire_recommendations"
   }, recos[sku].map(function (key) {
-    return React.createElement("a", {
+    return /*#__PURE__*/React.createElement("a", {
       href: "http://localhost:3001/product/".concat(key),
       key: key
-    }, React.createElement("img", {
+    }, /*#__PURE__*/React.createElement("img", {
       src: "https://mi-fr.org/img/".concat(key, ".svg"),
       width: "100",
       height: "100"
@@ -167,15 +184,15 @@ function Recommendations (_ref) {
   })));
 }
 
-var InspireRecommendations =
-/*#__PURE__*/
-function (_HTMLElement) {
+var InspireRecommendations = /*#__PURE__*/function (_HTMLElement) {
   _inherits(InspireRecommendations, _HTMLElement);
+
+  var _super = _createSuper(InspireRecommendations);
 
   function InspireRecommendations() {
     _classCallCheck(this, InspireRecommendations);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(InspireRecommendations).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(InspireRecommendations, [{
@@ -193,7 +210,7 @@ function (_HTMLElement) {
     key: "render",
     value: function render() {
       var sku = this.getAttribute("sku");
-      ReactDOM.render(React.createElement(Recommendations, {
+      ReactDOM.render( /*#__PURE__*/React.createElement(Recommendations, {
         sku: sku
       }), this);
     }
@@ -210,7 +227,7 @@ function (_HTMLElement) {
   }]);
 
   return InspireRecommendations;
-}(_wrapNativeSuper(HTMLElement));
+}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 
 window.customElements.define("inspire-recommendations", InspireRecommendations);
 console.log("Team Inspire - React v".concat(React.version));

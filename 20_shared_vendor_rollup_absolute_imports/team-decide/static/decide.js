@@ -53,7 +53,7 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
-function isNativeReflectConstruct() {
+function _isNativeReflectConstruct() {
   if (typeof Reflect === "undefined" || !Reflect.construct) return false;
   if (Reflect.construct.sham) return false;
   if (typeof Proxy === "function") return true;
@@ -67,7 +67,7 @@ function isNativeReflectConstruct() {
 }
 
 function _construct(Parent, args, Class) {
-  if (isNativeReflectConstruct()) {
+  if (_isNativeReflectConstruct()) {
     _construct = Reflect.construct;
   } else {
     _construct = function _construct(Parent, args, Class) {
@@ -137,8 +137,25 @@ function _possibleConstructorReturn(self, call) {
   return _assertThisInitialized(self);
 }
 
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
 function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _nonIterableRest();
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
 }
 
 function _arrayWithHoles(arr) {
@@ -146,10 +163,7 @@ function _arrayWithHoles(arr) {
 }
 
 function _iterableToArrayLimit(arr, i) {
-  if (!(Symbol.iterator in Object(arr) || Object.prototype.toString.call(arr) === "[object Arguments]")) {
-    return;
-  }
-
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
   var _arr = [];
   var _n = true;
   var _d = false;
@@ -175,8 +189,25 @@ function _iterableToArrayLimit(arr, i) {
   return _arr;
 }
 
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i];
+
+  return arr2;
+}
+
 function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance");
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
 var names = {
@@ -188,39 +219,39 @@ function ProductPage (_ref) {
   var sku = _ref.sku;
   var name = names[sku];
   window.document.title = name;
-  return React.createElement("div", {
+  return /*#__PURE__*/React.createElement("div", {
     className: "decide_layout"
-  }, React.createElement("h1", {
+  }, /*#__PURE__*/React.createElement("h1", {
     className: "decide_header"
-  }, "The Tractor Store"), React.createElement("div", {
+  }, "The Tractor Store"), /*#__PURE__*/React.createElement("div", {
     className: "decide_product"
-  }, React.createElement("h2", {
+  }, /*#__PURE__*/React.createElement("h2", {
     className: "decide_headline"
-  }, name), React.createElement("img", {
+  }, name), /*#__PURE__*/React.createElement("img", {
     className: "decide_image",
     src: "https://mi-fr.org/img/".concat(sku, "_standard.svg"),
     width: "100",
     height: "100"
-  })), React.createElement("div", {
+  })), /*#__PURE__*/React.createElement("div", {
     className: "decide_details"
-  }, React.createElement("checkout-buy", {
+  }, /*#__PURE__*/React.createElement("checkout-buy", {
     sku: sku
-  })), React.createElement("aside", {
+  })), /*#__PURE__*/React.createElement("aside", {
     className: "decide_recos"
-  }, React.createElement("inspire-recommendations", {
+  }, /*#__PURE__*/React.createElement("inspire-recommendations", {
     sku: sku
   })));
 }
 
-var DecideProductPage =
-/*#__PURE__*/
-function (_HTMLElement) {
+var DecideProductPage = /*#__PURE__*/function (_HTMLElement) {
   _inherits(DecideProductPage, _HTMLElement);
+
+  var _super = _createSuper(DecideProductPage);
 
   function DecideProductPage() {
     _classCallCheck(this, DecideProductPage);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(DecideProductPage).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(DecideProductPage, [{
@@ -250,7 +281,7 @@ function (_HTMLElement) {
           sku = _window$location$path2[1];
 
       if (sku) {
-        ReactDOM.render(React.createElement(ProductPage, {
+        ReactDOM.render( /*#__PURE__*/React.createElement(ProductPage, {
           sku: sku
         }), this);
       }
@@ -264,7 +295,7 @@ function (_HTMLElement) {
   }]);
 
   return DecideProductPage;
-}(_wrapNativeSuper(HTMLElement));
+}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 
 window.customElements.define("decide-product-page", DecideProductPage);
 console.log("Team Decide - React v".concat(React.version));

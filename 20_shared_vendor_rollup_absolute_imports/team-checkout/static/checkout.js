@@ -53,7 +53,7 @@ function _setPrototypeOf(o, p) {
   return _setPrototypeOf(o, p);
 }
 
-function isNativeReflectConstruct() {
+function _isNativeReflectConstruct() {
   if (typeof Reflect === "undefined" || !Reflect.construct) return false;
   if (Reflect.construct.sham) return false;
   if (typeof Proxy === "function") return true;
@@ -67,7 +67,7 @@ function isNativeReflectConstruct() {
 }
 
 function _construct(Parent, args, Class) {
-  if (isNativeReflectConstruct()) {
+  if (_isNativeReflectConstruct()) {
     _construct = Reflect.construct;
   } else {
     _construct = function _construct(Parent, args, Class) {
@@ -137,6 +137,23 @@ function _possibleConstructorReturn(self, call) {
   return _assertThisInitialized(self);
 }
 
+function _createSuper(Derived) {
+  return function () {
+    var Super = _getPrototypeOf(Derived),
+        result;
+
+    if (_isNativeReflectConstruct()) {
+      var NewTarget = _getPrototypeOf(this).constructor;
+
+      result = Reflect.construct(Super, arguments, NewTarget);
+    } else {
+      result = Super.apply(this, arguments);
+    }
+
+    return _possibleConstructorReturn(this, result);
+  };
+}
+
 var prices = {
   porsche: 66,
   fendt: 54,
@@ -145,7 +162,7 @@ var prices = {
 function Button (_ref) {
   var sku = _ref.sku;
   var price = prices[sku];
-  return React.createElement("button", {
+  return /*#__PURE__*/React.createElement("button", {
     type: "button",
     onClick: function onClick() {
       return alert("Thank you ❤️");
@@ -153,15 +170,15 @@ function Button (_ref) {
   }, "buy for ", price, " $");
 }
 
-var CheckoutBuy =
-/*#__PURE__*/
-function (_HTMLElement) {
+var CheckoutBuy = /*#__PURE__*/function (_HTMLElement) {
   _inherits(CheckoutBuy, _HTMLElement);
+
+  var _super = _createSuper(CheckoutBuy);
 
   function CheckoutBuy() {
     _classCallCheck(this, CheckoutBuy);
 
-    return _possibleConstructorReturn(this, _getPrototypeOf(CheckoutBuy).apply(this, arguments));
+    return _super.apply(this, arguments);
   }
 
   _createClass(CheckoutBuy, [{
@@ -179,7 +196,7 @@ function (_HTMLElement) {
     key: "render",
     value: function render() {
       var sku = this.getAttribute("sku");
-      ReactDOM.render(React.createElement(Button, {
+      ReactDOM.render( /*#__PURE__*/React.createElement(Button, {
         sku: sku
       }), this);
     }
@@ -196,7 +213,7 @@ function (_HTMLElement) {
   }]);
 
   return CheckoutBuy;
-}(_wrapNativeSuper(HTMLElement));
+}( /*#__PURE__*/_wrapNativeSuper(HTMLElement));
 
 window.customElements.define("checkout-buy", CheckoutBuy);
 console.log("Team Checkout - React v".concat(React.version));
