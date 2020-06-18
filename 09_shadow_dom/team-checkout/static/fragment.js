@@ -1,7 +1,7 @@
 const prices = {
   porsche: 66,
   fendt: 54,
-  eicher: 58
+  eicher: 58,
 };
 
 class CheckoutBuy extends HTMLElement {
@@ -32,7 +32,7 @@ class CheckoutBuy extends HTMLElement {
           transform: scale(0.98);
         }
       </style>
-      <button type="button">buy for ${prices[sku]} $</button>
+      <button type="button">buy for $${prices[sku]}</button>
     `;
     this.shadowRoot
       .querySelector("button")

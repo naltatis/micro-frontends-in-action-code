@@ -1,7 +1,7 @@
 const prices = {
   porsche: { standard: 66, platinum: 966 },
   fendt: { standard: 54, platinum: 945 },
-  eicher: { standard: 58, platinum: 958 }
+  eicher: { standard: 58, platinum: 958 },
 };
 
 class CheckoutBuy extends HTMLElement {
@@ -18,7 +18,7 @@ class CheckoutBuy extends HTMLElement {
     const sku = this.getAttribute("sku");
     const edition = this.getAttribute("edition") || "standard";
     this.innerHTML = `
-      <button type="button">buy for ${prices[sku][edition]} $</button>
+      <button type="button">buy for $${prices[sku][edition]}</button>
     `;
     this.querySelector("button").addEventListener("click", () => {
       this.dispatchEvent(new CustomEvent("checkout:item_added"));

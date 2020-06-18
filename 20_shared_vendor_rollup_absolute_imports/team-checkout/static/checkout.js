@@ -169,7 +169,7 @@ function Button (_ref) {
     onClick: function onClick() {
       return alert("Thank you ❤️");
     }
-  }, "buy for ", price, " $");
+  }, "buy for $", price);
 }
 
 var CheckoutBuy = /*#__PURE__*/function (_HTMLElement) {
