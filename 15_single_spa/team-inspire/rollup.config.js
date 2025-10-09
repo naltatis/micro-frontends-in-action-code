@@ -1,6 +1,6 @@
-import commonjs from "rollup-plugin-commonjs";
-import replace from "rollup-plugin-replace";
-import nodeResolve from "rollup-plugin-node-resolve";
+import commonjs from "@rollup/plugin-commonjs";
+import replace from "@rollup/plugin-replace";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
 import svelte from "rollup-plugin-svelte";
 
 export default {
@@ -14,7 +14,8 @@ export default {
     commonjs(),
     svelte(),
     replace({
-      "process.env.NODE_ENV": JSON.stringify("development")
+      "process.env.NODE_ENV": JSON.stringify("development"),
+      preventAssignment: true
     })
   ]
 };

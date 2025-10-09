@@ -23,5 +23,11 @@
     "style-loader": "^1.2.1",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11"
+  },
+  "overrides": {
+    "braces": "^3.0.3",
+    "micromatch": "^4.0.8",
+    "postcss": "^8.4.31",
+    "node-fetch": "^2.6.7"
   }
 }

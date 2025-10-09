@@ -4,24 +4,26 @@
   "description": "",
   "main": "dist/pages.js",
   "scripts": {
-    "build": "rollup -c",
-    "watch": "rollup -c -w",
+    "build": "rollup --config rollup.config.mjs",
+    "watch": "rollup --config rollup.config.mjs -w",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "rollup": "^2.13.1",
+    "@rollup/plugin-commonjs": "^28.0.6",
+    "@rollup/plugin-node-resolve": "^16.0.2",
+    "@rollup/plugin-replace": "^6.0.2",
+    "rollup": "^4.52.4",
     "rollup-plugin-alias": "^2.2.0",
     "rollup-plugin-commonjs": "^10.1.0",
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-vue": "^5.1.9",
-    "vue-template-compiler": "^2.6.11"
+    "rollup-plugin-vue": "^6.0.0"
   },
   "dependencies": {
-    "single-spa-vue": "^1.8.2",
-    "vue": "^2.6.11",
-    "vue-router": "^3.3.2"
+    "single-spa-vue": "^3.0.0",
+    "vue": "^3.5.22",
+    "vue-router": "^4.5.1"
   }
 }

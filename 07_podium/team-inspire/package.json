@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "start": "node index.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@podium/podlet": "^4.3.2",
-    "express": "^4.17.1",
-    "morgan": "^1.9.1"
+    "@podium/podlet": "^5.3.2",
+    "express": "^5.1.0",
+    "morgan": "^1.10.1"
   }
 }

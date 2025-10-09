@@ -21,11 +21,14 @@
           () => import("http://localhost:3001/pages.min.js"),
           ({ pathname }) => pathname.startsWith("/product/")
         );
-        singleSpa.registerApplication(
-          "checkout",
-          () => import("http://localhost:3003/pages.min.js"),
-          ({ pathname }) => pathname.startsWith("/checkout/")
-        );
+        singleSpa.registerApplication({
+          name: "checkout",
+          app: () => import("http://localhost:3003/pages.min.js"),
+          activeWhen: ({ pathname }) => pathname.startsWith("/checkout/"),
+          customProps: {
+            domElement: document.getElementById("app-checkout")
+          }
+        });
         singleSpa.start();
       </script>
       <footer>

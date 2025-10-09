@@ -1,6 +1,6 @@
-const express = require("express");
-const morgan = require("morgan");
-const Podlet = require("@podium/podlet");
+import express from "express";
+import morgan from "morgan";
+import Podlet from "@podium/podlet";
 
 const podlet = new Podlet({
   name: "recos",

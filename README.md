@@ -12,11 +12,11 @@ You can interact with the running examples here:<br> [https://the-tractor.store]
 
 1. Clone [this git repository](https://github.com/naltatis/micro-frontends-in-action-code) or [download & extract the zip](https://github.com/naltatis/micro-frontends-in-action-code/archive/master.zip) to your local machine.
 
-2. Make sure you have [Node.js](https://nodejs.org/) (v12 or newer) installed.
+2. Make sure you have [Node.js](https://nodejs.org/) (v18 or newer) installed.
 
    ```
    $ node -v
-   v14.4.0
+   v18.x.x
    ```
 
 3. Go into the main directory and install all required dependencies.

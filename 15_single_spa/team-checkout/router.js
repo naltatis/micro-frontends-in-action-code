@@ -1,13 +1,10 @@
-import Vue from "vue";
-import Router from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import Cart from "./Cart.vue";
 import Pay from "./Pay.vue";
 import Success from "./Success.vue";
 
-Vue.use(Router);
-
-export default new Router({
-  mode: "history",
+export default createRouter({
+  history: createWebHistory(),
   routes: [
     {
       path: "/checkout/cart",

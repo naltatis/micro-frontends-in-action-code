@@ -1,7 +1,7 @@
-import commonjs from "rollup-plugin-commonjs";
-import replace from "rollup-plugin-replace";
-import nodeResolve from "rollup-plugin-node-resolve";
-import babel from "rollup-plugin-babel";
+import commonjs from "@rollup/plugin-commonjs";
+import replace from "@rollup/plugin-replace";
+import { nodeResolve } from "@rollup/plugin-node-resolve";
+import babel from "@rollup/plugin-babel";
 
 export default {
   input: "pages.jsx",
@@ -11,18 +11,15 @@ export default {
   },
   plugins: [
     nodeResolve(),
-    commonjs({
-      namedExports: {
-        react: ["Component", "createElement"],
-        "react-is": ["isValidElementType"]
-      }
-    }),
+    commonjs(),
     babel({
       exclude: "node_modules/**",
-      presets: ["@babel/env", "@babel/preset-react"]
+      presets: ["@babel/env", "@babel/preset-react"],
+      babelHelpers: "bundled"
     }),
     replace({
-      "process.env.NODE_ENV": JSON.stringify("development")
+      "process.env.NODE_ENV": JSON.stringify("development"),
+      preventAssignment: true
     })
   ]
 };

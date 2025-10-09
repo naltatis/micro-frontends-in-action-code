@@ -1,6 +1,6 @@
-const express = require("express");
-const morgan = require("morgan");
-const Layout = require("@podium/layout");
+import express from "express";
+import morgan from "morgan";
+import Layout from "@podium/layout";
 
 const layout = new Layout({
   name: "product",
@@ -20,8 +20,8 @@ app.use(layout.middleware());
 app.use("/static", express.static("./static"));
 
 layout.css([
-  { value: "/static/page.css" },
-  { value: "/static/outlines.css" }
+  { value: "http://localhost:3001/static/page.css" },
+  { value: "http://localhost:3001/static/outlines.css" }
 ]);
 
 const products = {
@@ -31,7 +31,7 @@ const products = {
 };
 
 app.get(`/product/:sku`, async (req, res, next) => {
-  const sku = req.param("sku");
+  const sku = req.params.sku;
   const title = products[sku];
   const incoming = res.locals.podium;
 
